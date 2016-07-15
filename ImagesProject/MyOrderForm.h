@@ -12,7 +12,6 @@
 - (IBAction)confirmFormHandler:(id)sender;
 @property (weak, nonatomic) IBOutlet UITextField *txtBamkId;
 @property (weak, nonatomic) IBOutlet UITextField *txtAddress;
-@property (weak, nonatomic) IBOutlet UITextField *txtLastName;
-@property (weak, nonatomic) IBOutlet UITextField *txtFirstName;
+
 
 @end

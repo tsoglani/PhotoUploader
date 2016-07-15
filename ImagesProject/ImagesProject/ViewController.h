@@ -14,6 +14,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *buttonExit;
 - (IBAction)buttonExitHandler:(id)sender;
 - (IBAction)loadImageHandler:(id)sender;
+@property (strong, nonatomic) IBOutlet UIButton *loadImagesButton;
 
 
 

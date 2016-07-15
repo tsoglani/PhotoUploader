@@ -16,5 +16,5 @@
 +  (void)addFilterIntoArray;
 +  (UIImage*)getSelectedImageWithFilter;
 +  (void)setSelectedImageWithFilter:(UIImage *)image;
-
++ (NSString*)getNumberOfFiler;
 @end

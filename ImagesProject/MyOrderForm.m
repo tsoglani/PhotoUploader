@@ -10,12 +10,11 @@
 #import "TableViewsViewController.h"
 #import "LoadLibrary.h"
 #import "ViewController.h"
-
+#import "Register.h"
 @implementation MyOrderForm
 @synthesize txtBamkId;
 @synthesize txtAddress;
-@synthesize txtLastName;
-@synthesize txtFirstName;
+
 
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
@@ -65,8 +64,7 @@
 {
     [self setTxtBamkId:nil];
     [self setTxtAddress:nil];
-    [self setTxtLastName:nil];
-    [self setTxtFirstName:nil];
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -92,7 +90,7 @@
     NSString *contentType = [NSString stringWithFormat:@"multipart/form-data; boundary=%@", boundary];
     [request setValue:contentType forHTTPHeaderField:@"Content-Type"];
     [body appendData:[[NSString stringWithFormat:@"\r\n--%@\r\n",boundary] dataUsingEncoding: NSUTF8StringEncoding]];
-    [body appendData:[[NSString stringWithFormat:@"\r\n  name : %@ %@\r\n",txtFirstName.text,txtLastName.text] dataUsingEncoding: NSUTF8StringEncoding]];
+    [body appendData:[[NSString stringWithFormat:@"\r\n  name : %@ \r\n",[Register getUserName]] dataUsingEncoding: NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"\r\n  address :  %@\r\n",txtAddress.text] dataUsingEncoding: NSUTF8StringEncoding]];
     [body appendData:[[NSString stringWithFormat:@"\r\n  bank Id :  %@\r\n",txtBamkId.text] dataUsingEncoding: NSUTF8StringEncoding]];
    
@@ -120,7 +118,7 @@
     bool isReadyToOrder=true;
     NSString * title;
     NSString * message;
-    if ([txtBamkId.text length]<=1||[txtFirstName.text length]<=1||[txtLastName.text length]<=1||[txtAddress.text length]<=1) {
+    if ([txtBamkId.text length]<=1||[txtAddress.text length]<=1) {
         isReadyToOrder=false;
         
     }

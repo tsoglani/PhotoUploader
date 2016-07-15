@@ -16,7 +16,6 @@
 @synthesize imageView = _imageView;
 @synthesize labelFilter = _labelFilter;
 @synthesize dataObject = _dataObject;
-
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -38,6 +37,7 @@
 {
     [self setImageView:nil];
     [self setLabelFilter:nil];
+
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -66,8 +66,10 @@
 
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
-    // Return YES for supported orientations
+
     
+    // Return YES for supported orientations
+    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"photosBackground.jpg"]];
     printf("shouldAutorotateToInterfaceOrientation dataViewController\n");
     
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
@@ -80,7 +82,7 @@
 - (IBAction)addFilterHandler:(id)sender {
     [ModelController addFilterIntoArray];
     if ([ModelController getSelectedImageWithFilter]) {
-    setSelectedImage:[ModelController getSelectedImageWithFilter];
+    [LoadLibrary setSelectedImage:[ModelController getSelectedImageWithFilter]];
         printf("add image with filter sadsadasdsadsd\n");
     
     }
@@ -99,4 +101,11 @@
     [ModelController setSelectedImageWithFilter:NULL];    
     [LoadLibrary setWantToLoadLibrary:false];
 }
+
+
+
+
+
+
+
 @end

@@ -12,7 +12,7 @@
 @implementation ViewController
 @synthesize finishButton;
 @synthesize buttonExit;
-
+@synthesize loadImagesButton;
 
   //Boolean firstTime=true;
 - (void)didReceiveMemoryWarning
@@ -26,6 +26,10 @@
 
 - (void)viewDidLoad
 {
+    
+    NSLog(@"viewDidLoad   \n");
+    //loadImagesButton.backgroundColor=[UIColor clearColor];
+    self.view.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"mainBackground.jpg"]];
     [super viewDidLoad];
     
   
@@ -37,6 +41,7 @@
 
     [self setFinishButton:nil];
     [self setButtonExit:nil];
+    [self setLoadImagesButton:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;

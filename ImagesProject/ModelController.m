@@ -88,13 +88,19 @@ UIImage* imageWithFilter;
     
     printf(" all filters count %i\n",(int)[LoadLibrary getAllFiltersCount]);
       currentIntex=index;
-    UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(0, 0, 200,15)];
+    
+   int height=335;
+    UILabel *lab=[[UILabel alloc] initWithFrame:CGRectMake(0, height, 200,15)];
+    
+  
+    
     lab.text=[NSString stringWithFormat:@"filter :  %i",(int)(currentIntex)];
+   [lab setBackgroundColor:[UIColor clearColor]];
     [dataViewController.view addSubview:lab];
     
     dataViewController.labelFilter.text=[[NSString alloc] initWithFormat:[[LoadLibrary getAllFilters]objectAtIndex:index]];
-  
-    
+
+   
     //  NSString *str=[[NSString alloc] initWithFormat:[[LoadLibrary getAllFilters]objectAtIndex:index]]; // <--------------------- edw tha filtrarwnte oi eikones
     // NSLog(str);
     printf("viewControllerAtIndex = %i\n",index);
@@ -167,7 +173,7 @@ UIImage* imageWithFilter;
         selectedFilter = [[GPUImageSwirlFilter alloc] init];
     }
     else if( [dataViewController.labelFilter.text isEqual:@"TiltShiftFilter"]){
-        selectedFilter = [[GPUImageTiltShiftFilter alloc] init];
+        selectedFilter =(GPUImageFilter *) [[GPUImageTiltShiftFilter alloc] init];
     }
     else if( [dataViewController.labelFilter.text isEqual:@"VignetteFilter"]){
         selectedFilter = [[GPUImageVignetteFilter alloc] init];
@@ -256,6 +262,10 @@ UIImage* imageWithFilter;
 +  (void)setSelectedImageWithFilter:(UIImage *)image{
     
    imageWithFilter=image;
+}
+
++ (NSString*)getNumberOfFiler{
+    return [NSString stringWithFormat:@"filter :  %i",(int)(currentIntex)];
 }
 
 @end

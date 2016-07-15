@@ -15,5 +15,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelFilter;
 - (IBAction)canselHandler:(id)sender;
 
+- (void *) setNumberOfFilter:(NSString*)title ;
 @property (strong, nonatomic) id dataObject;
+
+
+
+
++ (void *) updateTxt;
 @end

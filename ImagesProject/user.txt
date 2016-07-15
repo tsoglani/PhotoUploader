@@ -1,0 +1,4 @@
+email :@
+password :1
+username :Nikolas
+bankAccount :21aew32sae33ws
